@@ -66,8 +66,7 @@ if len(sys.argv) > 1:
                             found_row = search_csv(mam_file, trim_mac[0:7])
                             if found_row is None:
                                 found_row = search_csv(mal_file, trim_mac[0:6])
-                    if found_row is not None:
-                        print(found_row[2])
+                    print(found_row[2] if found_row is not None else "Unknown Vendor")
                 # globally/locally = 0/1
                 locally = (int(trim_mac[0:2], 16) & 2) >> 1
                 print("Globally unique" if locally == 0 else "Locally administered")
